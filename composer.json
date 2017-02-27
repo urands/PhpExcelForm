@@ -1,0 +1,34 @@
+{
+    "name": "urands/phpexcelform",
+    "description": "Fast filling Excel file from HTML form and get reports",
+    "type": "library",
+	"license": "MIT",
+	"version": "0.0.1",
+    "authors": [
+        {
+            "name": "Iurii Bell",
+            "email": "ds@inbox.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+	
+    "require": {
+        "phpoffice/phpspreadsheet": "dev-master"
+    },
+	"require-dev": {
+        "urands/firephp": ">=1.0"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "PhpExcelForm\\": "src/PhpExcelForm"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PhpExcelForm\\PhpExcelFormTests\\": "tests/PhpExcelFormTests"
+        }
+    }
+
+	
+}
