@@ -1,0 +1,21 @@
+{
+    "name": "App",
+    "description": "app",
+    "version": "1.0.0",
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+		"urands/phpexcelwriter": "*"
+    },
+    "require-dev": {
+        "urands/phpexcelwriter": "*",
+		"urands/firephp": ">=1.0"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/urands/phpexcelwriter"
+        }
+    ]
+}

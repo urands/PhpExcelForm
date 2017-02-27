@@ -1,0 +1,12 @@
+{
+	"name": "ProjectCreate",
+	"sheet": 1,
+	"caption" : "B2",
+	"description": "B3",
+	"form": 
+		[
+			{ "type": "text",   "label":"B4", "value":"C4" },
+			{ "type": "number", "label":"B5", "value":"C5" },
+			{ "type": "list"  , "label":"B6", "value":"C6" }
+		]
+}
