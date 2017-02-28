@@ -23,7 +23,7 @@
 					] }]
 
 			},
-			{ "elem": "button", "type": "submit", "name": "somethig", "content":"Submit" }
+			{ "elem": "button", "type": "submit4", "name": "somet", "content": "Submit" }
 
 		]
 	}

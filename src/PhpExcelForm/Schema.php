@@ -24,8 +24,8 @@ class Schema
 
 	function load( $filename, $spreadsheet = null ){
 		if ( file_exists($filename)){
-			$this->template = json_decode(file_get_contents($filename));
-			$this->data = (array) clone (object)$this->template;
+			$this->data = $this->precompile($filename, $spreadsheet);
+			//$this->data = //(array) clone (object)$this->template;
 		}
 		if ( $spreadsheet ) $this->update($this->data, $spreadsheet);
 
@@ -35,19 +35,9 @@ class Schema
 		return true;
 	}
 
-	function updatestring($match, $string, $spreadsheet){
-		if ( is_array($match)){
-			foreach ($match as $key => $value) {
-				$cell = substr($value,1);
-				$replace = $spreadsheet->getActiveSheet()->getCell($cell)->getCalculatedValue();
-				$string = str_replace($value, $replace, $string);
-				//\FB::info($match);
-			}
-		}
-		return $string;
 
 
-	}
+
 
 	function cell($value){
 		if ( is_string($value)){
@@ -59,6 +49,32 @@ class Schema
 	}
 
 
+	/*
+	*   Preprocessor function from spreadsheet
+	*	Make dynamic JSON  
+	*/
+	protected function precompile($filename, $spreadsheet){
+		$content =  file_get_contents($filename);
+
+		return json_decode($content);
+	}
+
+
+
+	/*
+	*   Update function from spreadsheet
+	*/
+	protected function updatestring($match, $string, $spreadsheet){
+		if ( is_array($match)){
+			foreach ($match as $key => $value) {
+				$cell = substr($value,1);
+				$replace = $spreadsheet->getActiveSheet()->getCell($cell)->getCalculatedValue();
+				$string = str_replace($value, $replace, $string);
+				//\FB::info($match);
+			}
+		}
+		return $string;
+	}
 	protected function update(&$jsonobj, $spreadsheet){
 		if ( is_array($jsonobj)){
 			foreach ($jsonobj as $key => &$value) {
@@ -80,36 +96,6 @@ class Schema
 		}
 
 	}
-
-
-
-	protected function upload($spreadsheet){
-		if ( $spreadsheet && $this->template ){
-
-			if ( property_exists($this->template, 'sheet' )  ){
-				$spreadsheet->setActiveSheetIndex($this->template->sheet);
-				$this->data = new \stdClass();
-				if ( property_exists($this->template, 'caption' ) )     $this->data->caption = $spreadsheet->getActiveSheet()->getCell($this->template->caption)->getCalculatedValue();
-				if ( property_exists($this->template, 'description' ) ) $this->data->description = $spreadsheet->getActiveSheet()->getCell($this->template->description)->getCalculatedValue();
-
-				if ( property_exists($this->template, 'form' ) ){
-					foreach( $this->template->form as $key => $input ){
-						$this->data->form[$key] = new \stdClass();
-						foreach( $input  as $keyinput => $value ){
-							if ( $keyinput == "type") {
-								$this->data->form[$key]->$keyinput = $value;
-							}else{
-								$this->data->form[$key]->$keyinput = $spreadsheet->getActiveSheet()->getCell($value)->getCalculatedValue();
-							}
-						}
-					}
-				}
-				
-			}
-
-		}
-	}
-
 
 
 
