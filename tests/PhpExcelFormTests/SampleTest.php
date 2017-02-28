@@ -11,6 +11,8 @@ use PhpExcelForm\JsonTemplate;
 
 
 
+
+
 class SampleTest
 {
     /**
@@ -27,11 +29,22 @@ class SampleTest
 
         $writer = new Writer();
 
-        $writer->load($sample.'.xlsx');
+        $writer->load($sample.'finmodel.xlsx');
 
         $schema = new Schema();
 
-        if (!$schema->load($sample.'.json', $writer->getSpreadsheet() ) ) return false;
+        //commit changes
+        if (!empty($_POST)){
+            if (array_key_exists("php-excel-form-save", $_POST)){
+                $schema->commit($_POST, $writer->getSpreadsheet() );
+            }
+
+        }
+
+        //Upload file
+        //if (!$schema->load($sample.'0-project-create.json', $writer->getSpreadsheet() ) ) return false;
+        if (!$schema->load($sample.'2-product.json', $writer->getSpreadsheet() ) ) return false;
+        //if (!$schema->load($sample.'3-costs.json', $writer->getSpreadsheet() ) ) return false;
 
 
      //   \FB::log($schema->cell("Supeb #A435 ddddsd"));
@@ -43,6 +56,8 @@ class SampleTest
 
         echo $engine->render( $schema->data );
 
+        
+        $writer->save($sample.'output.xlsx');
 
 
  
@@ -96,9 +111,6 @@ class SampleTest
         //$spreadsheet->SetActiveSheet(0);
 
 
-         //$writer =IOFactory::createWriter($spreadsheet, 'Excel2007');
-
-        //$writer->save($sample.'_output.xlsx');
 
         
 

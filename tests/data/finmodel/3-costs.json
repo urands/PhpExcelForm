@@ -1,0 +1,12 @@
+[
+
+	
+	/*  for($i=0; $i<3;$i++)   */
+	/*  for($j=0; $j<3;$j++)   */
+	{ "elem": "input", "type":"text","name": "C14", "value":"INT  ggg $i $j", "id":"product-count" },
+	/* endfor */
+	{ "elem": "input", "type":"text","name": "C14", "value":"EXT ", "id":"product-count" },
+	/* endfor */
+	
+	{ "elem": "input", "type":"text","name": "C14", "value":"#C14", "id":"product-count" }
+]

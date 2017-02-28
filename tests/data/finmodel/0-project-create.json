@@ -1,0 +1,45 @@
+[
+	{"elem": "h2", "content": "#B6" },
+	{ "elem": "p", "content": "#B7" },
+	{ 
+		"elem" : "form",
+		"method": "POST",
+		"class" :"form-horizontal",
+		"action": "",
+		"content":
+		[
+			{ "elem": "input", "type":"hidden","name": "php-excel-form-save", "value":"save" },
+			{ "elem": "div", "class":"form-group", "content": [
+					{ "elem": "label", "class":"col-sm-5 control-label", "content": "#B8"},
+					{ "elem": "div", "class":"col-sm-7 input-group", "content": [
+					  { "elem": "input", "class":"form-control","name": "C8", "value": "#C8" },
+					  { "elem": "div","class":"input-group-addon", "content": ""  }]}
+			]},
+			{ "elem": "div", "class":"form-group", "content": [
+					{ "elem": "label", "class":"col-sm-5 control-label", "content": "#B9"},
+					{ "elem": "div", "class":"col-sm-7 input-group", "content": [
+					  { "elem": "input", "class":"form-control","name": "C9", "value": "#C9" },
+					  { "elem": "div","class":"input-group-addon", "content": "лет"  }]}
+			]},
+
+			{ "elem": "div", "class":"form-group", "content": [
+					{ "elem": "label", "class":"col-sm-5 control-label", "content": "#B10"},
+					{ "elem": "div", "class":"col-sm-7 input-group", "content": [
+						{ "elem": "select", "class":"form-control", "name": "C10",
+							"content":[
+								{ "elem": "option", "value":"#F10", "content": "#F10" },
+								{ "elem": "option", "value":"#G10", "content": "#G10" }
+									  ]}
+					]}
+			]},
+
+			{ "elem": "div", "class":"form-group", "content": [
+						{ "elem": "label", "class":"col-sm-5", "content": ""},
+						{ "elem": "button", "class":"btn btn-default","type": "submit", "content": "Далее" } 
+			]}
+
+
+		]
+	}
+
+]
