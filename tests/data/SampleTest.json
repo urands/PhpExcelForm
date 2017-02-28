@@ -1,12 +1,31 @@
-{
-	"name": "ProjectCreate",
-	"sheet": 1,
-	"caption" : "B2",
-	"description": "B3",
-	"form": 
+[
+	{
+		"elem": "div",
+		"class": "excel-div",
+		"content": "Некий див  #B4 который я могу использовать A4 "
+	},
+	{ 
+		"elem" : "form",
+		"method": "POST",
+		"action": "",
+		"content":
 		[
-			{ "type": "text",   "label":"B4", "value":"C4" },
-			{ "type": "number", "label":"B5", "value":"C5" },
-			{ "type": "list"  , "label":"B6", "value":"C6" }
+			{ "elem": "h2", "class": "somethig", "content": "#B2" },
+			{ "elem": "p", "class": "somethig", "content": "#B3" },
+			{ "elem": "hidden", "name": "somethig", "value":"A243" },
+			{ "elem": "div", "content": [{ "elem": "label", "content": "#B4"},{ "elem": "input", "name": "C4", "value": "#C4" }]  },
+			{ "elem": "div", "content": [{ "elem": "label", "content": "#B5"},{ "elem": "input", "name": "C5", "value": "#C5" }]  },
+			{ "elem": "div", "content": [{ "elem": "label", "content": "#B6"},{ "elem": "select","name": "C6",
+					"content":
+					[
+						{ "elem": "option", "name": "somethig", "value":"1", "content": "#F6" },
+						{ "elem": "option", "name": "somethig", "value":"0", "content": "#G6" }
+					] }]
+
+			},
+			{ "elem": "button", "type": "submit", "name": "somethig", "content":"Submit" }
+
 		]
-}
+	}
+
+]

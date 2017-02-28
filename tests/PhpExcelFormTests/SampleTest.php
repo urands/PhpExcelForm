@@ -5,6 +5,9 @@ namespace PhpExcelForm\PhpExcelFormTests;
 
 use PhpExcelForm\Writer;
 use PhpExcelForm\Form;
+use PhpExcelForm\Schema;
+
+use PhpExcelForm\JsonTemplate;
 
 
 
@@ -21,19 +24,40 @@ class SampleTest
     {
         // Suppress output to console
 
- /*       $writer = new Writer();
 
+        $writer = new Writer();
+
+        $writer->load($sample.'.xlsx');
+
+        $schema = new Schema();
+
+        if (!$schema->load($sample.'.json', $writer->getSpreadsheet() ) ) return false;
+
+
+     //   \FB::log($schema->cell("Supeb #A435 ddddsd"));
+
+
+      //  \FB::log($schema);
+
+        $engine = new  JsonTemplate();
+
+        echo $engine->render( $schema->data );
+
+
+
+ 
+/*
         $form = new Form();
 
 
              
 
-        $writer->load($sample.'.xlsx');
+
 
         $form->load($sample.'.json', $writer->getSpreadsheet() );   
         
 
-        \FB::log($form);
+        
 
 
         $writer->save($sample.'_output.xlsx');  
@@ -79,6 +103,20 @@ class SampleTest
         
 
 
+        return $sample;
+    }
+
+
+    function testJsonTemplate($sample){
+
+        $engine = new  JsonTemplate();
+
+        if ( file_exists($sample.".json")){
+            echo $engine->render( json_decode ( file_get_contents($sample.".json")  ) );
+        }
+
+
+        //\FB::log($sample);
         return $sample;
     }
 

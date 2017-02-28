@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpExcelWriter;
+namespace PhpExcelForm;
 
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;

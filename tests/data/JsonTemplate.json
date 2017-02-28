@@ -1,0 +1,32 @@
+[
+	{
+		"elem": "div",
+		"class": "excel-div",
+		"content": "Некий див который я могу использовать"
+	},
+	{ 
+		"elem" : "form",
+		"method": "POST",
+		"action": "",
+		"content":
+		[
+			{ "elem": "h1", "class": "somethig", "content": "Классная форма" },
+			{ "elem": "hidden", "name": "somethig", "value":"A243" },
+			{ "elem": "div", "content": [{ "elem": "label", "content": "Первый лайбел1"},{ "elem": "input", "name": "A2", "value": "Text1" }]  },
+			{ "elem": "div", "content": [{ "elem": "label", "content": "Первый лайбел2"},{ "elem": "input", "name": "A3" }]  },
+			{ "elem": "div", "content": [{ "elem": "label", "content": "Первый лайбел3"},{ "elem": "input", "name": "A4" }]  },
+
+			{ "elem": "div", "content": [{ "elem": "label", "content": "Первый лайбел3"},{ "elem": "select", "name": "SEL",
+					"content":
+					[
+						{ "elem": "option", "name": "somethig", "value":"A243", "content": "dddddddd1" },
+						{ "elem": "option", "name": "somethig", "value":"A243", "content": "dddddddd2" }
+					] }]
+
+			},
+			{ "elem": "button", "type": "submit", "name": "somethig", "content":"Submit" }
+
+		]
+	}
+
+]

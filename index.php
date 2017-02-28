@@ -22,4 +22,6 @@
 
 
 
+	//$test->testJsonTemplate(__DIR__.'/tests/data/JsonTemplate');
+
 	$test->testSample(__DIR__.'/tests/data/SampleTest');

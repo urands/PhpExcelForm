@@ -4,7 +4,6 @@
  *
  * Copyright (c) 2017+ PHPExcelForm
  *
- *
  * @category   PhpExcelForm
  * @author Iurii Bell <ds@inbox.ru>
  * @copyright  Copyright (c) 2017+ PhpExcelForm 
