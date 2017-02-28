@@ -41,7 +41,7 @@ class Schema
 
 	function cell($value){
 		if ( is_string($value)){
-			if (preg_match("/#[A-Z]{1,2}\d{1,5}/", $value, $match)) {
+			if (preg_match_all("/#[A-Z]{1,2}\d{1,5}/", $value, $match)) {
 				return $match;//substr($value,1);
 			}
 		}
@@ -56,6 +56,26 @@ class Schema
 	protected function precompile($filename, $spreadsheet){
 		$content =  file_get_contents($filename);
 
+		if ( preg_match_all("/\/\*(.*?)\*\//", $content, $match)){
+			foreach ($match[0] as $key => $value) {
+
+				$precompile = trim($match[1][$key]);
+				if ( strtolower(substr($precompile, 0, 3)) == "for" ){
+
+					\FB::log($precompile);
+					$cell = $this->cell($precompile);
+					if ( $cell !== false ){
+						$precompile = $this->updatestring($cell,$precompile,$spreadsheet);
+					}
+					\FB::log($precompile);
+				}
+				$content = str_replace($value, "", $content);
+			}
+
+		}
+		
+		
+
 		return json_decode($content);
 	}
 
@@ -66,11 +86,13 @@ class Schema
 	*/
 	protected function updatestring($match, $string, $spreadsheet){
 		if ( is_array($match)){
-			foreach ($match as $key => $value) {
+			if ( is_array($match[0])){
+			foreach ($match[0] as $key => $value) {
 				$cell = substr($value,1);
 				$replace = $spreadsheet->getActiveSheet()->getCell($cell)->getCalculatedValue();
 				$string = str_replace($value, $replace, $string);
 				//\FB::info($match);
+			}
 			}
 		}
 		return $string;

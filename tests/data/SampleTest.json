@@ -12,7 +12,9 @@
 		[
 			{ "elem": "h2", "class": "somethig", "content": "#B2" },
 			{ "elem": "p", "class": "somethig", "content": "#B3" },
+			/*  for($i=0; $i<#C5;$i++)   */
 			{ "elem": "hidden", "name": "somethig", "value":"A243" },
+			/*  endfor  */
 			{ "elem": "div", "content": [{ "elem": "label", "content": "#B4"},{ "elem": "input", "name": "C4", "value": "#C4" }]  },
 			{ "elem": "div", "content": [{ "elem": "label", "content": "#B5"},{ "elem": "input", "name": "C5", "value": "#C5" }]  },
 			{ "elem": "div", "content": [{ "elem": "label", "content": "#B6"},{ "elem": "select","name": "C6",
@@ -23,6 +25,7 @@
 					] }]
 
 			},
+			/*  rtyrttryrt    */
 			{ "elem": "button", "type": "submit4", "name": "somet", "content": "Submit" }
 
 		]
