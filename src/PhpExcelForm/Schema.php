@@ -82,19 +82,19 @@ class Schema
 
 				$precompile = trim($match[1][$key]);
 				$startpos = strpos($content, $value);
-				if ( strtolower(substr($precompile, 0, 3)) == "for" ){
+				//if ( strtolower(substr($precompile, 0, 3)) == "for" ){
 					$cell = $this->cell($precompile);
 					if ( $cell !== false ){
 						$precompile = $this->updatestring($cell,$precompile,$spreadsheet);
 						$content = str_replace(trim($match[1][$key]), $precompile, $content);
-						\FB::info($precompile);
-						\FB::info($value);
+						//\FB::info($precompile);
+						//\FB::info($value);
 					}
-				}
+				//}
 			}
 		}
 		$content = $this->renderpart_adv($content);
-		\FB::log($content);
+		//\FB::log($content);
 		return $content;
 	}
 

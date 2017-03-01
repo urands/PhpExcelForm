@@ -6,123 +6,35 @@
 	{ 
 		"elem" : "form",
 		"method": "POST",
-		"class" :"form-inline",
+		"class" :"form-horizontal php-excel-form",
 		"action": "",
+
 		"content":
 		[
 
 
-
-			{ "elem": "input", "type":"hidden","name": "C14", "value":"#C14", "id":"product-count" },
+			{ "elem": "input", "type":"hidden","name": "C14", "value":"#C14", "id":"item-count" },
 			{ "elem": "input", "type":"hidden","name": "product-start", "value":"B16", "id":"product-start" },
-			{ "elem": "input", "type":"hidden","name": "php-excel-form-save", "value":"save" },
+			{ "elem": "input", "type":"hidden","name": "php-excel-form-save", "id": "php-excel-form-save" , "value":"save" },
 
-
-			{ "elem": "table", "class":"table", "content": [
-
-				{ "elem": "thead", "class":"", "content": [
-
-					/* for($head=0;$head<8;$head++) */
-						{ "elem": "th", "class":"", "content": [
-						  { "elem": "span", "class":"","name": "/* echo $this->addr($head+1,15); */", "content": "#/* echo $this->addr($head+1,15); */" }
-						]},
-					/* endfor */
-						{ "elem": "th", "class":"hidden", "content": "" }
-				]},
-
-
-			/* for($i=0;$i<8;$i++) */
-				{ "elem": "tr", "class":"", "content": [
-
-					/* for($j=0;$j<8;$j++) */
-						{ "elem": "td", "class":"", "content": [
-						  { "elem": "input", "class":"","name": "/* echo $this->addr($j+1,$i+16); */", "value": "#/* echo $this->addr($j+1,$i+16); */" }
-						]},
-					/* endfor */
-			
-					{ "elem": "td", "class":"hidden", "content": "" }
-				]},
-				/* endfor */
-				{ "elem": "tr", "class":"hidden", "content": "" }
-			]},
-			
-
-
-
-
-			{ "elem": "div", "class":"form-group", "content": [
-					{ "elem": "label", "class":"col-sm-5 control-label", "content": "#B15"},
-					{ "elem": "div", "class":"col-sm-7 input-group", "content": [
-					  { "elem": "input", "class":"form-control","name": "B16", "value": "#B16" },
-					  { "elem": "div","class":"input-group-addon", "content": ""  }]}
-			]},
-			{ "elem": "div", "class":"form-group", "content": [
-					{ "elem": "label", "class":"col-sm-5 control-label", "content": "#E15"},
-					{ "elem": "div", "class":"col-sm-7 input-group", "content": [
-					  { "elem": "input", "class":"form-control count","name": "E16", "value": "#E16" },
-					  { "elem": "div","class":"input-group-addon", "content": "#"  }]}
-			]},			
-			
-			/*  for($i=0; $i<#C9;$i++)   */
-			{ "elem": "div", "class":"form-group", "content": [
-					{ "elem": "label", "class":"col-sm-5 control-label", "content": "#/* echo $this->addr(7+$i,15); */"},
-					{ "elem": "div", "class":"col-sm-7 input-group", "content": [
-					  { "elem": "input", "class":"form-control percent","name": "/* echo $this->addr(7+$i,16); */", "value": "#/* echo $this->addr(7+$i,16); */" },
-					  { "elem": "div","class":"input-group-addon", "content": "%"  }]}
-			]},	
-			/*  endfor  */
-
-			{ "elem": "div", "class":"form-group", "content": [
-					{ "elem": "label", "class":"col-sm-5 control-label", "content": "#F15"},
-					{ "elem": "div", "class":"col-sm-7 input-group", "content": [
-					  { "elem": "input", "class":"form-control","name": "F16", "value": "#F16" },
-					  { "elem": "div","class":"input-group-addon", "content": ""  }]}
-			]},
-
-
-			/*  for($i=0; $i<#C9;$i++)   */
-			{ "elem": "div", "class":"form-group", "content": [
-					{ "elem": "label", "class":"col-sm-5 control-label", "content": "#/* echo $this->addr(7+$i,15); */"},
-					{ "elem": "div", "class":"col-sm-7 input-group", "content": [
-					  { "elem": "input", "class":"form-control percent","name": "/* echo $this->addr(7+$i,16); */", "value": "#/* echo $this->addr(7+$i,16); */" },
-					  { "elem": "div","class":"input-group-addon", "content": "%"  }]}
-			]},	
-			/*  endfor  */
-
-
-
-
-
-			{ "elem": "div", "class":"form-group", "content": [
-					{ "elem": "label", "class":"col-sm-5 control-label", "content": "#B8"},
-					{ "elem": "div", "class":"col-sm-7 input-group", "content": [
-					  { "elem": "input", "class":"form-control","name": "C8", "value": "#C8" },
-					  { "elem": "div","class":"input-group-addon", "content": ""  }]}
-			]},
-			{ "elem": "div", "class":"form-group", "content": [
-					{ "elem": "label", "class":"col-sm-5 control-label", "content": "#B9"},
-					{ "elem": "div", "class":"col-sm-7 input-group", "content": [
-					  { "elem": "input", "class":"form-control","name": "C9", "value": "#C9" },
-					  { "elem": "div","class":"input-group-addon", "content": "лет"  }]}
-			]},
-
-			{ "elem": "div", "class":"form-group", "content": [
-					{ "elem": "label", "class":"col-sm-5 control-label", "content": "#G14"},
-					{ "elem": "div", "class":"col-sm-7 input-group", "content": [
-						{ "elem": "select", "class":"form-control", "name": "C10",
-							"content":[
-								{ "elem": "option", "value":"#F10", "content": "#F10" },
-								{ "elem": "option", "value":"#G10", "content": "#G10" }
-									  ]}
+			/*  for($i=0; $i<12;$i++)   */
+			{ "elem": "div", "class":"form-group /* if ( $i >= #C14 ) echo 'hidden'; */", "id":"item-$i", "data-num":"$i" , "content": [
+					{ "elem": "label", "class":"col-sm-2 control-label", "content": "#B15 /* echo $i+1; */"},
+					{ "elem": "div", "class":"col-sm-3 input-group", "content": [
+					  { "elem": "input", "class":"form-control item-input-$i","name": "B/* echo $i+1+15; */", "value": "#B/* echo $i+1+15; */" },
+					  { "elem": "div","class":"input-group-addon", "content": [
+					  	{ "elem": "i", "class":"", "content": "текст " } ,
+						{ "elem": "a", "class":"php-excel-form-del-btn", "href":"#" ,"data-id":"/* echo $i; */" , "content": [ { "elem": "i", "class":"fa fa-trash-o", "content": ""} ] }
+					]}
+					
 					]}
 			]},
-
-
-			
+			/*  endfor  */
 			{ "elem": "div", "class":"form-group", "content": [
-						{ "elem": "label", "class":"col-sm-5", "content": ""},
-						{ "elem": "button", "class":"btn btn-default","type": "button", "content": "Добавить" },
-						{ "elem": "button", "class":"btn btn-default","type": "submit", "content": "Далее" } 
+						{ "elem": "label", "class":"col-sm-2", "content": ""},
+						{ "elem": "div", "class":"col-sm-3 input-group", "content": [
+							{ "elem": "button", "class":"btn btn-default php-excel-form-add-btn","type": "button", "content": "Добавить" },
+							{ "elem": "button", "class":"btn btn-default","type": "submit", "content": "Далее" } ] }
 			]}
 
 
